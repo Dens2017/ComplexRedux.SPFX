@@ -1,3 +1,6 @@
+#DESCRIPTION
+Project with working Redux - Single Component
+
 ## redux-03-spfx
 
 This is where you include your WebPart documentation.
