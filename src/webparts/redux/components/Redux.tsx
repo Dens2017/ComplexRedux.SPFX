@@ -15,29 +15,13 @@ import {
 } from '../actions';
 import { IApplicationState } from '../reducers/IApplicationState';
 
-export default class Redux extends React.Component<IReduxProps, IReduxState> {
+export default class Redux extends React.Component<IReduxProps, {}> {
 
   constructor(props: IReduxProps) {
     super(props);
-    this.state = {
-      checkers: 0,
-      chess: 0,
-      fish: 0
-    };
-  }
-
-  public async componentDidMount() {
-    // const appState: Store = this.props.store;
-    // const appStateData: IApplicationState = appState.getState();
-    // this.setState({ 
-    //   checkers: appStateData.checkers,
-    //   chess: appStateData.chess,
-    //   fish: appStateData.fish
-    //  });
   }
 
   public render(): React.ReactElement<IReduxProps> {
-    this.props.store.subscribe(this.render);
     const appState: IApplicationState = this.props.store.getState();
     const percentCompleteCheckers: number = appState.checkers/100;
     const percentCompleteChess: number = appState.chess/100;
@@ -50,7 +34,6 @@ export default class Redux extends React.Component<IReduxProps, IReduxState> {
               <div className={styles.rowButtonFormats}>
                 <DefaultButton
                   primary
-                  // data-automation-id="test"
                   disabled={false}
                   text="Checkers"
                   onClick={this.clickedCheckers}
@@ -58,7 +41,6 @@ export default class Redux extends React.Component<IReduxProps, IReduxState> {
                 />
                 <DefaultButton
                   primary
-                  // data-automation-id="test"
                   disabled={false}
                   text="Chess"
                   onClick={this.clickedChess}
@@ -66,7 +48,6 @@ export default class Redux extends React.Component<IReduxProps, IReduxState> {
                 />
                 <DefaultButton
                   primary
-                  // data-automation-id="test"
                   disabled={false}
                   text="Go Fish"
                   onClick={this.clickedGoFish}
